@@ -1,0 +1,22 @@
+﻿@page
+@model Company.Pages.Departments.IndexModel
+@{
+}
+@foreach(var item in Model.Departments)
+{
+	
+	<div class="row">
+		<div class="col">
+			<h2>@item.departmentName</h2>
+			<h2>Location <span>@item.departmentLocation</span></h2>
+			<h2>Phone Number <span>@item.phoneNumber</span></h2>
+			<h2>Director <span>@item.director</span></h2>
+		</div>
+		<div class="col">
+			<h2>Total Employees: <span>@item.totalEmployees</span></h2>
+			<h2>Female Employees: <span>@item.femaleEmployees</span></h2>
+			<h2>Male Employees: <span>@item.maleEmployees</span></h2>
+			<h2>Avg.Salary: <span>@item.averageSalary</span></h2>
+		</div>
+	</div>
+}

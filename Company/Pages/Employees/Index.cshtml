@@ -1,0 +1,45 @@
+﻿@page
+@model Company.Pages.Employees.IndexModel
+@{
+}
+
+<h1>List of Employees</h1>
+<form action="/Employees/Search?Search=@Model.search">
+	<div class="col-sm-6 d-flex">
+		<input type="text" class="form-control" name="search" value="@Model.search">
+		<button type="submit" class="btn btn-primary">Search</button>
+	</div>
+</form>
+<a class="btn btn-primary btn-sm" href="/Employees/Create">New Employee</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Birth Date</th>
+			<th>Address</th>
+			<th>Sex</th>
+			<th>Salary</th>
+			<th>Department</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model.EmployeeList)
+		{
+			<tr>
+				<td>@item.id</td>
+				<td>@item.name</td>
+				<td>@item.bDate</td>
+				<td>@item.address</td>
+				<td>@item.sex</td>
+				<td>@item.salary</td>
+				<td>@item.departmentId</td>
+				<td>
+						<a class="btn btn-primary btn-sm" href="/Employees/Info?id=@item.id">Info</a>
+					<a class="btn btn-primary btn-sm" href="/Employees/Edit?id=@item.id">Edit</a>
+					<a class="btn btn-danger btn-sm" href="/Employees/Delete?id=@item.id">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

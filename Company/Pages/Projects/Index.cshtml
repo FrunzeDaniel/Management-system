@@ -1,0 +1,60 @@
+﻿@page
+@model Company.Pages.Projects.IndexModel
+@{
+}
+
+<h1>Projects</h1>
+<a class="btn btn-primary btn-sm" href="/Projects/Create">New Project</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Project Name</th>
+			<th>Project Location</th>
+			<th>Department</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model.Projects)
+		{
+			<tr>
+				<td>@item.id</td>
+				<td>@item.projectName</td>
+				<td>@item.projLocation</td>
+				<td>@item.departmentId</td>
+
+				<td>
+					<a class="btn btn-primary btn-sm" href="/Projects/Edit?id=@item.id">Edit</a>
+					<a class="btn btn-danger btn-sm" href="/Projects/Delete?id=@item.id">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<h1>Works On</h1>
+<a class="btn btn-primary btn-sm" href="/Projects/AssignEmployee">Assign an Employee to Project</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Employee</th>
+			<th>project</th>
+			<th>Hours</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model.WorksOn)
+		{
+			<tr>
+				<td>@item.id</td>
+				<td>@item.employeeId</td>
+				<td>@item.projectId</td>
+				<td>@item.hours</td>
+					<td>
+						<a class="btn btn-danger btn-sm" href="/Projects/FinishWork?id=@item.id">Finish</a>
+					</td>
+			</tr>
+		}
+	</tbody>
+</table>

@@ -1,0 +1,29 @@
+﻿@page
+@model Company.Pages.Employees.InfoModel
+@{
+}
+
+<div class="row">
+	<div class="col">
+		<h1>Employee Info</h1>
+		<h2>Name: <span>@Model.employee.name</span></h2>
+		<h2>Birth Date: <span>@Model.employee.bDate</span></h2>
+		<h2>Address: <span>@Model.employee.address</span></h2>
+		<h2>Sex: <span>@Model.employee.sex</span></h2>
+		<h2>Salary: <span>@Model.employee.salary</span></h2>
+	</div>
+	<div class="col">
+		<h1>Dependent info</h1>
+		@foreach(var item in Model.Dependents)
+		{
+			<h2>Name: <span>@item.dependetnname</span></h2>
+			<h2>Sex: <span>@item.sex</span></h2>
+			<h2>Birth Date: <span>@item.bDate</span></h2>
+			<h2>Relationship: <span>@item.relationship</span></h2>
+		}
+	</div>
+</div>
+
+
+
+
